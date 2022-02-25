@@ -2,7 +2,8 @@
 import { useEffect, useState } from "react";
 
 // components
-import Question from "./Question/Question";
+import Question from "./components/Question/Question";
+import Answers from "./components/Answers/Answers";
 
 // styles
 import styles from "./App.module.css";
@@ -28,6 +29,7 @@ function App() {
           {questions.map((itm) => (
             <div key={itm._id}>
               <Question>{itm.question}</Question>
+              <Answers data={itm.answers} />
             </div>
           ))}
         </div>
