@@ -1,23 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+// imports
+import { useEffect, useState } from "react";
+
+// components
+import Question from "./Question/Question";
+
+// styles
+import styles from "./App.module.css";
 
 function App() {
+  const [questions, setQuestions] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost:5000/questions")
+      .then(async (res) => {
+        const data = await res.json();
+        console.log(data.questions);
+        setQuestions(data.questions);
+      })
+      .catch((err) => console.log(err));
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {questions.length === 0 ? (
+        <p>loading...</p>
+      ) : (
+        <div>
+          {questions.map((itm) => (
+            <div key={itm._id}>
+              <Question>{itm.question}</Question>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 }
