@@ -1,3 +1,26 @@
 .answersContainer {
   margin: 16px 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.answerContainer {
+  margin: 8px 0;
+  width: calc(50% - 8px);
+  border-radius: 4px;
+  padding: 16px;
+  display: flex;
+  justify-content: center;
+  transition: all 400ms ease-in;
+  border: 1px solid rgb(246, 246, 246);
+}
+
+.answerContainer:hover {
+  cursor: pointer;
+  background-color: rgb(253, 253, 253);
+}
+
+.answerText {
+  font-size: 14px;
 }

@@ -41,7 +41,7 @@ function App() {
           <p className={loadingText}>loading</p>
         </div>
       ) : (
-        <div>
+        <>
           {questions.map((itm) => (
             <div key={itm._id}>
               <div className={questionContainer}>
@@ -51,7 +51,7 @@ function App() {
               <Answers data={itm.answers} />
             </div>
           ))}
-        </div>
+        </>
       )}
     </div>
   );
