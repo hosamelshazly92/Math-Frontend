@@ -4,3 +4,26 @@
   box-sizing: border-box;
   font-family: "Open Sans", sans-serif;
 }
+
+.appContainer {
+  padding: 16px;
+}
+
+.loadingContainer {
+  border-radius: 8px;
+  padding-top: 32px;
+  padding-bottom: 64px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.loadingSpinner {
+  width: 80px;
+}
+
+.loadingText {
+  font-size: 16px;
+  font-weight: 500;
+  color: rgb(140, 140, 140);
+}
