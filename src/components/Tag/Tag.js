@@ -1,7 +1,13 @@
+// styles
+import styles from "./Tag.module.css";
+
+// vars
+const { tagContainer, tagText } = styles;
+
 const Tag = ({ children }) => {
   return (
-    <div>
-      <p>{children}</p>
+    <div className={tagContainer}>
+      <p className={tagText}>{children}</p>
     </div>
   );
 };

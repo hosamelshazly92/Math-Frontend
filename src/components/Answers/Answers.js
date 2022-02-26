@@ -1,6 +1,12 @@
+// styles
+import styles from "./Answers.module.css";
+
+// vars
+const { answersContainer } = styles;
+
 const Answers = ({ data }) => {
   return (
-    <div>
+    <div className={answersContainer}>
       {data.map((itm, idx) => (
         <div key={idx}>
           <p>{itm}</p>
