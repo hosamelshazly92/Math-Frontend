@@ -1,5 +1,11 @@
 // imports
 import { useEffect, useState } from "react";
+import store from "./state/store";
+import {
+  // handleGetQuestions,
+  getQuestions,
+} from "./state/actions/questionsActions";
+// import { connect } from "react-redux";
 
 // components
 import Question from "./components/Question/Question";
@@ -20,15 +26,18 @@ const {
   loadingText,
   questionContainer,
 } = styles;
+const URL = "http://localhost:5000/questions";
 
 function App() {
   const [questions, setQuestions] = useState([]);
+
   useEffect(() => {
-    fetch("http://localhost:5000/questions")
-      .then(async (res) => {
-        const data = await res.json();
-        console.log(data.questions);
-        setQuestions(data.questions);
+    fetch(URL)
+      .then((res) => res.json())
+      .then((data) => {
+        store.dispatch(getQuestions(data.questions));
+        let arr = store.getState().questionsReducer;
+        setQuestions(arr);
       })
       .catch((err) => console.log(err));
   }, []);
@@ -48,7 +57,7 @@ function App() {
                 <Tag>{itm.type}</Tag>
                 <Question>{itm.question}</Question>
               </div>
-              <Answers data={itm.answers} />
+              <Answers data={itm.choices} />
             </div>
           ))}
         </>
@@ -57,4 +66,5 @@ function App() {
   );
 }
 
+// export default connect()(App);
 export default App;
