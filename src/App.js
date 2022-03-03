@@ -1,10 +1,7 @@
 // imports
 import { useEffect, useState } from "react";
-import store from "./state/store";
-import {
-  // handleGetQuestions,
-  getQuestions,
-} from "./state/actions/questionsActions";
+// import store from "./state/store";
+import { getQuestions } from "./state/actions/questionsActions";
 // import { connect } from "react-redux";
 
 // components
@@ -17,6 +14,7 @@ import spinner from "./assets/gif/loading-spinner.gif";
 
 // styles
 import styles from "./App.module.css";
+import store from "./state/store";
 
 // vars
 const {
@@ -66,5 +64,17 @@ function App() {
   );
 }
 
-// export default connect()(App);
+// const mapStateToProps = (state) => {
+//   return {
+//     questions: state.questionsReducer,
+//   };
+// };
+
+// const mapDispatchToProps = (state) => {
+//   return {
+//     fn: () => dispatch(action()),
+//   };
+// };
+
+// export default connect(mapStateToProps, mapDispatchToProps)(App);
 export default App;
